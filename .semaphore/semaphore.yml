@@ -52,7 +52,7 @@ blocks:
         always:
           commands:
             - "[[ -f junit.xml ]] && test-results publish --name \"\U0001F9EA Unit tests\" junit.xml"
-  - name: Integration tests
+  - name: Integration test
     dependencies:
       - Unit tests
     task:
