@@ -24,21 +24,19 @@ blocks:
       jobs:
         - name: check style + security
           commands:
-            - sem-version ruby 2.7.3
+            - sem-version ruby 2.7.2
             - sem-version node 14.16.1
             - checkout
             - cache restore
             - bundle install
             - cache store
-            - bundle exec rubocop
-            - bundle exec brakeman
   - name: Unit tests
     dependencies:
       - Code scanning
     task:
       prologue:
         commands:
-          - sem-version ruby 2.7.3
+          - sem-version ruby 2.7.2
           - sem-version node 14.16.1
           - checkout
           - cache restore
@@ -50,20 +48,17 @@ blocks:
         - name: RSpec - model tests
           commands:
             - bundle exec rspec spec/models
-        - name: RSpec - controller tests
-          commands:
-            - bundle exec rspec spec/controllers
       epilogue:
         always:
           commands:
             - "[[ -f junit.xml ]] && test-results publish --name \"\U0001F9EA Unit tests\" junit.xml"
-  - name: Integration tests
+  - name: Integration test
     dependencies:
       - Unit tests
     task:
       prologue:
         commands:
-          - sem-version ruby 2.7.3
+          - sem-version ruby 2.7.2
           - sem-version node 14.16.1
           - checkout
           - cache restore
@@ -74,7 +69,6 @@ blocks:
           commands:
             - sem-service start postgres
             - 'bundle exec rake db:setup'
-            - bundle exec rspec spec/features
       epilogue:
         always:
           commands:
@@ -83,5 +77,4 @@ after_pipeline:
   task:
     jobs:
       - name: Publish Results
-        commands:
-          - test-results gen-pipeline-report
+        commands: []
