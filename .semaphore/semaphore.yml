@@ -77,5 +77,4 @@ after_pipeline:
   task:
     jobs:
       - name: Publish Results
-        commands:
-          - test-results gen-pipeline-report
+        commands: []
