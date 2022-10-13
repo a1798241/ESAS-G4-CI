@@ -69,7 +69,6 @@ blocks:
           commands:
             - sem-service start postgres
             - 'bundle exec rake db:setup'
-            - bundle exec rspec spec/features
       epilogue:
         always:
           commands:
