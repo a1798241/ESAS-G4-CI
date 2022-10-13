@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-light"  style="background-color: #e3f2fd;">
+  <a class="navbar-brand" href="#">Adelaide University</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <% if @user.user_type == 0 %>
+        <%= link_to "Home", index_path, class: "nav-item nav-link active" %>
+      <% elsif @user.user_type == 1 %>
+        <%= link_to "Home", staff_index_path, class: "nav-item nav-link active" %>
+      <% elsif@user.user_type == 2 %>
+        <%= link_to "Home", staff_index_path, class: "nav-item nav-link active" %>
+      <%end %>
+      <% if @user.user_type == 2 %>
+      <%= link_to "View Students", students_path, class: "nav-item nav-link active" %>
+      <%end %>
+    </div>
+
+    </div>
+  </div>
+  <div class="topnav-right">
+    <% if @user %>
+      logged in as <%= @user.first_name %>
+      <%= link_to "Logout", logout_path, class: "nav-item nav-link" %>
+    <% end %>
+</nav>

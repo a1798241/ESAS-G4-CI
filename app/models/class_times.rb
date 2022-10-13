@@ -1,0 +1,2 @@
+class ClassTimes < ApplicationRecord
+end

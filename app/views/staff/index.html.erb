@@ -1,0 +1,21 @@
+<div class="index">
+  Welcome Staff!
+
+  <div class="login-details">
+  <%= @user.first_name %>
+  <%= @user.last_name %>
+    <%= @user.staff_id %>
+    <%= @user.user_type %>
+
+  </div>
+  Welcome to the Course Catalogue Editor!
+  <div>
+    <%=link_to "View Courses", list_path %>
+  </div>
+
+</div>
+
+<br>
+<div class="logout">
+  <%=link_to "Logout",logout_path, class: "login-box" %>
+</div>

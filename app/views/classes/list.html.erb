@@ -1,0 +1,36 @@
+<h1>Classes</h1>
+
+<table class="ui table">
+  <thead>
+  <tr>
+    <th>Class Code</th>
+    <th>Class Name</th>
+    <th>Professor</th>
+    <th>Description</th>
+    <th class="right aligned"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @classes.each do |classs| %>
+    <tr>
+    <td><%= classs.class_code %></td>
+    <td><%= classs.class_name %></td>
+    <td><%= classs.teacher_name %></td>
+    <td><%= classs.description %></td>
+      <td class="right aligned">
+        <div class="ui small basic buttons">
+          <%= link_to show_path(classs), class: "ui button" do %>
+            <i class="eye icon"></i> Show
+          <% end %>
+          <%= link_to edit_class_path(classs), class: "ui button" do %>
+            <i class="eye icon"></i> Edit
+          <% end %>
+
+
+        </div>
+      </td>
+  <% end %>
+  </tr>
+    </tbody>
+</table>

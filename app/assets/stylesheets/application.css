@@ -1,0 +1,102 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+.topbar {
+    top:0;
+    left:0;
+    display:block;
+    width:100%;
+    height:80px;
+    padding:10px;
+    background-color:#003366;
+    text-align:center;
+}
+
+.topbar img {
+    width:175px;
+    margin-top:5px;
+    text-align:center;
+}
+
+
+.index {
+    font-size:30px;
+    text-align:center;
+}
+
+.index h1 {
+    font-size:48px;
+    margin-bottom:50px;
+    color:#003366;
+}
+
+.login-box {
+    font-family:'Roboto';
+    display:block;
+    margin:50px auto;
+    width:350px;
+    padding:10px;
+    font-size:30px;
+    text-align:center;
+}
+
+.login {
+    border-radius:10px;
+    border:none;
+    font-size:24px;
+    padding:5px 15px;
+    color:#fff;
+    background-color:#888;
+}
+
+.login:hover{
+    cursor:pointer;
+    background-color:#eee;
+    color:#888;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+/* log out button */
+
+.logout {
+    text-align:right;
+    margin-bottom:25px;
+}
+
+.logout a {
+    color:#fff;
+    background-color:#888;
+    padding:5px 15px;
+    border-radius:10px;
+}
+
+.logout a:hover {
+    background-color:#eee;
+    color:#888;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+a {
+    text-decoration: none;
+}
+
+.login-details{
+    font-family: Arial;
+}

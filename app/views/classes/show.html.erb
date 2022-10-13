@@ -1,0 +1,96 @@
+<%= stylesheet_link_tag "classes.css" %>
+
+<h1>
+  <%= @course.class_code %> <%= @course.class_name %>
+</h1>
+<table class="ui table">
+  <tbody>
+    <tr>
+      <td class="row_header">Career: </td>
+      <td><%= @course.career %></td>
+    <tr>
+      <td class="row_header">Units: </td>
+      <td><%= @course.units %></td>
+    </tr>
+    <tr>
+      <td class="row_header">Term: </td>
+      <td><%= @course.term %></td>
+    </tr>
+    <tr>
+      <td class="row_header">Course Coordinator: </td>
+      <td><%= @course.teacher_name %></td>
+    </tr>
+    <tr>
+      <td class="row_header">Campus: </td>
+      <td><%= @course.campus %></td>
+    </tr>
+    <tr>
+      <td class="row_header">Contact: </td>
+      <td>Up to <%= @course.contact %> hours per week</td>
+    </tr>
+    <tr>
+      <td class="row_header">Pre-Requisite: </td>
+      <td><%= @course.pre_requisite %></td>
+    </tr>
+    <tr>
+      <td class="row_header">Incompatible:	 </td>
+      <td><%= @course.incompatible %></td>
+    </tr>
+    <tr>
+      <td class="row_header">Course Description:	 </td>
+      <td><%= @course.description %></td>
+    </tr>
+    <tr>
+      <td class="row_header">Course Content</td>
+      <td><%= @classes.content %></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Class Times</h2>
+
+<table class="ui table">
+  <thead>
+  <tr>
+    <th>Class Type </th>
+    <th>Day </th>
+    <th>Class Times </th>
+    <th>Location </th>
+    <th>Class Size </th>
+  </tr>
+  </thead>
+  <% @class_times.each do |times| %>
+    <tr>
+      <td><%= times.class_type %></td>
+      <td><%= times.day %></td>
+      <td><%= times.start_time %> to <%= times.end_time %></td>
+      <td><%= times.location %></td>
+      <td><%= times.class_size %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+  <h2>
+    Versions
+    <%= @classes.versions.size %>
+  </h2>
+
+  <table class='table'>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Previous Content</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @classes.versions.order(id: :desc).each do |version| %>
+      <tr>
+        <td><%= version.id %></td>
+        <td><%= version.content %></td>
+      </tr>
+    <% end %>
+    </tbody>
+
+</table>

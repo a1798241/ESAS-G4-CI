@@ -1,0 +1,42 @@
+<%= form_with(model: classes, local: true) do |form| %>
+  <%# if classes.errors.any? %>
+<!--    <div id="error_explanation">-->
+<!--      <h2><%#= pluralize(classes.errors.count, "error") %> prohibited this class from being saved:</h2>-->
+
+<!--      <ul>-->
+        <%# classes.errors.full_messages.each do |message| %>
+<!--          <li><%#= message %></li>-->
+        <%# end %>
+<!--      </ul>-->
+<!--    </div>-->
+  <%# end %>
+
+  <div class="field">
+    <%= form.label :class_name %>
+    <%= form.text_field :class_name%>
+  </div>
+
+  <div class="field">
+    <%= form.label :class_code %>
+    <%= form.text_field :class_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :teacher_name %>
+    <%= form.text_field :teacher_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.rich_text_area :content %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
