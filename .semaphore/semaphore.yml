@@ -24,7 +24,7 @@ blocks:
       jobs:
         - name: check style + security
           commands:
-            - sem-version ruby 2.7.3
+            - sem-version ruby 2.7.2
             - sem-version node 14.16.1
             - checkout
             - cache restore
