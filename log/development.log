@@ -253,3 +253,145 @@ Completed 200 OK in 16ms (Views: 10.7ms | ActiveRecord: 0.4ms | Allocations: 655
   [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
   [1m[36mClassTimes Create (0.4ms)[0m  [1m[32mINSERT INTO "class_times" ("class_code", "class_type", "start_time", "end_time", "day", "location", "class_size", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["class_code", "COMP_SCI 3310"], ["class_type", "Workshop"], ["start_time", "1:00"], ["end_time", "2:00"], ["day", "Wednesday"], ["location", "WR01"], ["class_size", "10"], ["created_at", "2022-10-13 10:23:47.339121"], ["updated_at", "2022-10-13 10:23:47.339121"]]
   [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for 127.0.0.1 at 2022-10-14 01:29:55 +1030
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LoginController#index as HTML
+  [1m[36mStudent Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "students" WHERE "students"."student_id" = ? LIMIT ?[0m  [["student_id", "a17111111"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:9:in `index'
+  [1m[36mStaff Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "staffs" WHERE "staffs"."staff_id" = ? LIMIT ?[0m  [["staff_id", "a17111111"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:12:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 782)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 53.9ms | Allocations: 8988)
+Completed 200 OK in 145ms (Views: 61.0ms | ActiveRecord: 1.7ms | Allocations: 14893)
+
+
+Started GET "/login/index?id=a17111111&password=&commit=Login" for 127.0.0.1 at 2022-10-14 01:29:58 +1030
+Processing by LoginController#index as HTML
+  Parameters: {"id"=>"a17111111", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mStudent Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "students" WHERE "students"."student_id" = ? LIMIT ?[0m  [["student_id", "a17111111"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:9:in `index'
+  [1m[36mStaff Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "staffs" WHERE "staffs"."staff_id" = ? LIMIT ?[0m  [["staff_id", "a17111111"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:12:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 378)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 4963)
+Completed 200 OK in 17ms (Views: 11.0ms | ActiveRecord: 0.4ms | Allocations: 6606)
+
+
+Started GET "/login/index?id=a1711111&password=&commit=Login" for 127.0.0.1 at 2022-10-14 01:30:00 +1030
+Processing by LoginController#index as HTML
+  Parameters: {"id"=>"a1711111", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mStudent Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "students" WHERE "students"."student_id" = ? LIMIT ?[0m  [["student_id", "a1711111"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:9:in `index'
+Redirected to http://127.0.0.1:3000/index.a1711111
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms | Allocations: 919)
+
+
+Started GET "/index.a1711111" for 127.0.0.1 at 2022-10-14 01:30:00 +1030
+Processing by IndexController#index as */*
+  [1m[36mStudent Load (0.6ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."student_id" = ? LIMIT ?[0m  [["student_id", "a1711111"], ["LIMIT", 1]]
+  ↳ app/controllers/index_controller.rb:3:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering index/index.html.erb within layouts/application
+  Rendered index/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 295)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar-staff.html.erb (Duration: 1.2ms | Allocations: 431)
+  Rendered layout layouts/application.html.erb (Duration: 13.7ms | Allocations: 5492)
+Completed 200 OK in 29ms (Views: 15.8ms | ActiveRecord: 1.0ms | Allocations: 10876)
+
+
+Started GET "/logout" for 127.0.0.1 at 2022-10-14 01:30:03 +1030
+Processing by LoginController#destroy as HTML
+Redirected to http://127.0.0.1:3000/login/index
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms | Allocations: 244)
+
+
+Started GET "/login/index" for 127.0.0.1 at 2022-10-14 01:30:03 +1030
+Processing by LoginController#index as HTML
+  [1m[36mStudent Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "students" WHERE "students"."student_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:9:in `index'
+  [1m[36mStaff Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "staffs" WHERE "staffs"."staff_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:12:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 374)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 4929)
+Completed 200 OK in 20ms (Views: 10.8ms | ActiveRecord: 1.9ms | Allocations: 6560)
+
+
+Started GET "/login/index?id=a1700000&password=&commit=Login" for 127.0.0.1 at 2022-10-14 01:30:07 +1030
+Processing by LoginController#index as HTML
+  Parameters: {"id"=>"a1700000", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mStudent Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "students" WHERE "students"."student_id" = ? LIMIT ?[0m  [["student_id", "a1700000"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:9:in `index'
+  [1m[36mStaff Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "staffs" WHERE "staffs"."staff_id" = ? LIMIT ?[0m  [["staff_id", "a1700000"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:12:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 377)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 4921)
+Completed 200 OK in 12ms (Views: 7.7ms | ActiveRecord: 0.3ms | Allocations: 6557)
+
+
+Started GET "/login/index?id=a170000&password=&commit=Login" for 127.0.0.1 at 2022-10-14 01:30:09 +1030
+Processing by LoginController#index as HTML
+  Parameters: {"id"=>"a170000", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mStudent Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "students" WHERE "students"."student_id" = ? LIMIT ?[0m  [["student_id", "a170000"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:9:in `index'
+  [1m[36mStaff Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "staffs" WHERE "staffs"."staff_id" = ? LIMIT ?[0m  [["staff_id", "a170000"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:12:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 377)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 4918)
+Completed 200 OK in 18ms (Views: 12.2ms | ActiveRecord: 0.6ms | Allocations: 6537)
+
+
+Started GET "/login/index?id=a1710000&password=&commit=Login" for 127.0.0.1 at 2022-10-14 01:30:12 +1030
+Processing by LoginController#index as HTML
+  Parameters: {"id"=>"a1710000", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mStudent Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "students" WHERE "students"."student_id" = ? LIMIT ?[0m  [["student_id", "a1710000"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:9:in `index'
+  [1m[36mStaff Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "staffs" WHERE "staffs"."staff_id" = ? LIMIT ?[0m  [["staff_id", "a1710000"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:12:in `index'
+Redirected to http://127.0.0.1:3000/staff.a1710000
+Completed 302 Found in 6ms (ActiveRecord: 0.4ms | Allocations: 1520)
+
+
+Started GET "/staff.a1710000" for 127.0.0.1 at 2022-10-14 01:30:12 +1030
+Processing by StaffController#index as */*
+  [1m[36mStaff Load (0.2ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs" WHERE "staffs"."staff_id" = ? LIMIT ?[0m  [["staff_id", "a1710000"], ["LIMIT", 1]]
+  ↳ app/controllers/staff_controller.rb:3:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering staff/index.html.erb within layouts/application
+  Rendered staff/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 313)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar-staff.html.erb (Duration: 0.3ms | Allocations: 152)
+  Rendered layout layouts/application.html.erb (Duration: 20.4ms | Allocations: 5066)
+Completed 200 OK in 36ms (Views: 21.9ms | ActiveRecord: 0.6ms | Allocations: 10098)
+
+
+Started GET "/list" for 127.0.0.1 at 2022-10-14 01:30:15 +1030
+Processing by ClassesController#list as HTML
+  [1m[36mStaff Load (0.2ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs" WHERE "staffs"."staff_id" = ? LIMIT ?[0m  [["staff_id", "a1710000"], ["LIMIT", 1]]
+  ↳ app/controllers/classes_controller.rb:4:in `list'
+  Rendering layout layouts/application.html.erb
+  Rendering classes/list.html.erb within layouts/application
+  [1m[36mClasses Load (1.1ms)[0m  [1m[34mSELECT "classes".* FROM "classes"[0m
+  ↳ app/views/classes/list.html.erb:15
+  Rendered classes/list.html.erb within layouts/application (Duration: 19.8ms | Allocations: 8266)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar-staff.html.erb (Duration: 0.4ms | Allocations: 154)
+  Rendered layout layouts/application.html.erb (Duration: 29.6ms | Allocations: 13149)
+Completed 200 OK in 50ms (Views: 29.4ms | ActiveRecord: 3.3ms | Allocations: 16792)
+
+
