@@ -1,0 +1,255 @@
+Started GET "/" for 127.0.0.1 at 2022-10-13 20:52:59 +1030
+  [1m[35m (7.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 8 pending migrations:
+
+20220818000922_create_students.rb
+20220818000928_create_staffs.rb
+20220818101714_create_classes.rb
+20220829111048_add_cols_to_classes.rb
+20220831133421_create_class_times.rb
+20221010011347_create_active_storage_tables.active_storage.rb
+20221010011348_create_action_text_tables.action_text.rb
+20221010014001_create_versions.rb
+
+
+):
+  
+activerecord (6.1.7) lib/active_record/migration.rb:625:in `check_pending!'
+activerecord (6.1.7) lib/active_record/migration.rb:590:in `block (2 levels) in call'
+activesupport (6.1.7) lib/active_support/evented_file_update_checker.rb:59:in `execute'
+activerecord (6.1.7) lib/active_record/migration.rb:595:in `block in call'
+activerecord (6.1.7) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.7) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.7) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.7) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.7) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.7) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.7) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.7) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.7) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.7) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/host_authorization.rb:148:in `call'
+rack-mini-profiler (2.3.4) lib/mini_profiler/profiler.rb:393:in `call'
+webpacker (5.4.3) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.4) lib/rack/proxy.rb:78:in `call'
+railties (6.1.7) lib/rails/engine.rb:539:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateStudents (20220818000922)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "students" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" varchar, "first_name" varchar, "last_name" varchar, "password" varchar, "user_type" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220818000922"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateStaffs (20220818000928)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "staffs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "staff_id" varchar, "first_name" varchar, "last_name" varchar, "password" varchar, "user_type" integer, "staff_job" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220818000928"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateClasses (20220818101714)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "classes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "class_name" varchar, "class_code" varchar, "teacher_name" varchar, "description" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220818101714"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddColsToClasses (20220829111048)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "classes" ADD "career" varchar[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "classes" ADD "units" varchar[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "classes" ADD "term" varchar[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "classes" ADD "campus" varchar[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "classes" ADD "contact" varchar[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "classes" ADD "pre_requisite" varchar[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "classes" ADD "incompatible" varchar[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "classes" ADD "content" varchar[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220829111048"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateClassTimes (20220831133421)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "class_times" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "class_code" varchar, "class_type" varchar, "start_time" varchar, "end_time" varchar, "day" varchar, "location" varchar, "class_size" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220831133421"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateActiveStorageTables (20221010011347)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "filename" varchar NOT NULL, "content_type" varchar, "metadata" text, "service_name" varchar NOT NULL, "byte_size" bigint NOT NULL, "checksum" varchar NOT NULL, "created_at" datetime NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" integer NOT NULL, "blob_id" integer NOT NULL, "created_at" datetime NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" integer NOT NULL, "variation_digest" varchar NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221010011347"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateActionTextTables (20221010011348)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "action_text_rich_texts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "body" text, "record_type" varchar NOT NULL, "record_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_action_text_rich_texts_uniqueness" ON "action_text_rich_texts" ("record_type", "record_id", "name")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221010011348"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateVersions (20221010014001)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "versions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "item_type" varchar NOT NULL, "item_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_versions_on_item" ON "versions" ("item_type", "item_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221010014001"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-10-13 10:23:11.076194"], ["updated_at", "2022-10-13 10:23:11.076194"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2022-10-13 20:53:15 +1030
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LoginController#index as HTML
+  [1m[36mStudent Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "students" WHERE "students"."student_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:9:in `index'
+  [1m[36mStaff Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "staffs" WHERE "staffs"."staff_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:12:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (Duration: 5.2ms | Allocations: 774)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/nathang/Desktop/ESAS-G4-CI/public/packs
+[Webpacker] Hash: c2b646b2e90a3e824d0d
+Version: webpack 4.46.0
+Time: 4273ms
+Built at: 10/13/2022 8:53:23 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-6ddb6f148d82752074d0.js    470 KiB  application  [emitted] [immutable]  application
+js/application-6ddb6f148d82752074d0.js.map    528 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-6ddb6f148d82752074d0.js js/application-6ddb6f148d82752074d0.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 541 bytes {application} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 863 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 9 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 7333.9ms | Allocations: 27554)
+Completed 200 OK in 7413ms (Views: 7344.1ms | ActiveRecord: 1.8ms | Allocations: 36510)
+
+
+Started GET "/login/index?id=a1711111&password=&commit=Login" for 127.0.0.1 at 2022-10-13 20:53:27 +1030
+Processing by LoginController#index as HTML
+  Parameters: {"id"=>"a1711111", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mStudent Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "students" WHERE "students"."student_id" = ? LIMIT ?[0m  [["student_id", "a1711111"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:9:in `index'
+  [1m[36mStaff Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "staffs" WHERE "staffs"."staff_id" = ? LIMIT ?[0m  [["staff_id", "a1711111"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:12:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 378)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 4919)
+Completed 200 OK in 17ms (Views: 10.8ms | ActiveRecord: 0.5ms | Allocations: 6541)
+
+
+Started GET "/login/index?id=a17111111&password=&commit=Login" for 127.0.0.1 at 2022-10-13 20:53:30 +1030
+Processing by LoginController#index as HTML
+  Parameters: {"id"=>"a17111111", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mStudent Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "students" WHERE "students"."student_id" = ? LIMIT ?[0m  [["student_id", "a17111111"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:9:in `index'
+  [1m[36mStaff Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "staffs" WHERE "staffs"."staff_id" = ? LIMIT ?[0m  [["staff_id", "a17111111"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:12:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 377)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 4921)
+Completed 200 OK in 16ms (Views: 10.7ms | ActiveRecord: 0.4ms | Allocations: 6559)
+
+
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "students" WHERE "students"."student_id" = ? LIMIT ?[0m  [["student_id", "a1711111"], ["LIMIT", 1]]
+  [1m[36mStudent Create (0.9ms)[0m  [1m[32mINSERT INTO "students" ("student_id", "first_name", "last_name", "password", "user_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["student_id", "a1711111"], ["first_name", "John"], ["last_name", "Deen"], ["password", "student"], ["user_type", 0], ["created_at", "2022-10-13 10:23:47.179976"], ["updated_at", "2022-10-13 10:23:47.179976"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "students" WHERE "students"."student_id" = ? LIMIT ?[0m  [["student_id", "a1722222"], ["LIMIT", 1]]
+  [1m[36mStudent Create (0.3ms)[0m  [1m[32mINSERT INTO "students" ("student_id", "first_name", "last_name", "password", "user_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["student_id", "a1722222"], ["first_name", "Chris"], ["last_name", "Roland"], ["password", "student"], ["user_type", 0], ["created_at", "2022-10-13 10:23:47.187244"], ["updated_at", "2022-10-13 10:23:47.187244"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "students" WHERE "students"."student_id" = ? LIMIT ?[0m  [["student_id", "a1733333"], ["LIMIT", 1]]
+  [1m[36mStudent Create (0.4ms)[0m  [1m[32mINSERT INTO "students" ("student_id", "first_name", "last_name", "password", "user_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["student_id", "a1733333"], ["first_name", "James"], ["last_name", "Kratos"], ["password", "student"], ["user_type", 0], ["created_at", "2022-10-13 10:23:47.192969"], ["updated_at", "2022-10-13 10:23:47.192969"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "students" WHERE "students"."student_id" = ? LIMIT ?[0m  [["student_id", "a1744444"], ["LIMIT", 1]]
+  [1m[36mStudent Create (0.4ms)[0m  [1m[32mINSERT INTO "students" ("student_id", "first_name", "last_name", "password", "user_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["student_id", "a1744444"], ["first_name", "Daniel"], ["last_name", "Knight"], ["password", "student"], ["user_type", 0], ["created_at", "2022-10-13 10:23:47.204886"], ["updated_at", "2022-10-13 10:23:47.204886"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStaff Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "staffs" WHERE "staffs"."staff_id" = ? LIMIT ?[0m  [["staff_id", "a1710000"], ["LIMIT", 1]]
+  [1m[36mStaff Create (0.3ms)[0m  [1m[32mINSERT INTO "staffs" ("staff_id", "first_name", "last_name", "user_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["staff_id", "a1710000"], ["first_name", "Hannah"], ["last_name", "Montana"], ["user_type", 2], ["created_at", "2022-10-13 10:23:47.219280"], ["updated_at", "2022-10-13 10:23:47.219280"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStaff Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "staffs" WHERE "staffs"."staff_id" = ? LIMIT ?[0m  [["staff_id", "a1712222"], ["LIMIT", 1]]
+  [1m[36mStaff Create (0.3ms)[0m  [1m[32mINSERT INTO "staffs" ("staff_id", "first_name", "last_name", "user_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["staff_id", "a1712222"], ["first_name", "Angelina"], ["last_name", "Jolie"], ["user_type", 1], ["created_at", "2022-10-13 10:23:47.224799"], ["updated_at", "2022-10-13 10:23:47.224799"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStaff Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "staffs" WHERE "staffs"."staff_id" = ? LIMIT ?[0m  [["staff_id", "a1713333"], ["LIMIT", 1]]
+  [1m[36mStaff Create (0.5ms)[0m  [1m[32mINSERT INTO "staffs" ("staff_id", "first_name", "last_name", "user_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["staff_id", "a1713333"], ["first_name", "Morgan"], ["last_name", "Cresswell"], ["user_type", 1], ["created_at", "2022-10-13 10:23:47.231178"], ["updated_at", "2022-10-13 10:23:47.231178"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStaff Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "staffs" WHERE "staffs"."staff_id" = ? LIMIT ?[0m  [["staff_id", "a1714444"], ["LIMIT", 1]]
+  [1m[36mStaff Create (0.3ms)[0m  [1m[32mINSERT INTO "staffs" ("staff_id", "first_name", "last_name", "user_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["staff_id", "a1714444"], ["first_name", "Davina"], ["last_name", "Suarez"], ["user_type", 1], ["created_at", "2022-10-13 10:23:47.236644"], ["updated_at", "2022-10-13 10:23:47.236644"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mClasses Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "classes" WHERE "classes"."class_code" = ? LIMIT ?[0m  [["class_code", "COMP_SCI 3310"], ["LIMIT", 1]]
+  [1m[36mClasses Create (0.3ms)[0m  [1m[32mINSERT INTO "classes" ("class_name", "class_code", "teacher_name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["class_name", "Advanced Algorithms"], ["class_code", "COMP_SCI 3310"], ["teacher_name", "Ian Knight"], ["description", "something"], ["created_at", "2022-10-13 10:23:47.280257"], ["updated_at", "2022-10-13 10:23:47.280257"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mClasses Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "classes" WHERE "classes"."class_code" = ? LIMIT ?[0m  [["class_code", "MATH 2139"], ["LIMIT", 1]]
+  [1m[36mClasses Create (0.3ms)[0m  [1m[32mINSERT INTO "classes" ("class_name", "class_code", "teacher_name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["class_name", "Maths IA"], ["class_code", "MATH 2139"], ["teacher_name", "Tony Roberts"], ["description", "Maths and stuff"], ["created_at", "2022-10-13 10:23:47.296136"], ["updated_at", "2022-10-13 10:23:47.296136"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mClasses Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "classes" WHERE "classes"."class_code" = ? LIMIT ?[0m  [["class_code", "MATH 2637"], ["LIMIT", 1]]
+  [1m[36mClasses Create (0.3ms)[0m  [1m[32mINSERT INTO "classes" ("class_name", "class_code", "teacher_name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["class_name", "Maths IB"], ["class_code", "MATH 2637"], ["teacher_name", "Finnaur skrata"], ["description", "Some more Maths"], ["created_at", "2022-10-13 10:23:47.307167"], ["updated_at", "2022-10-13 10:23:47.307167"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mClasses Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "classes" WHERE "classes"."class_code" = ? LIMIT ?[0m  [["class_code", "COMP_SCI 3890"], ["LIMIT", 1]]
+  [1m[36mClasses Create (0.3ms)[0m  [1m[32mINSERT INTO "classes" ("class_name", "class_code", "teacher_name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["class_name", "Object Orientated Programming"], ["class_code", "COMP_SCI 3890"], ["teacher_name", "Cheryl Pope"], ["description", "Easy class"], ["created_at", "2022-10-13 10:23:47.318114"], ["updated_at", "2022-10-13 10:23:47.318114"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mClassTimes Create (0.4ms)[0m  [1m[32mINSERT INTO "class_times" ("class_code", "class_type", "start_time", "end_time", "day", "location", "class_size", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["class_code", "COMP_SCI 3310"], ["class_type", "Workshop"], ["start_time", "1:00"], ["end_time", "2:00"], ["day", "Wednesday"], ["location", "WR01"], ["class_size", "10"], ["created_at", "2022-10-13 10:23:47.339121"], ["updated_at", "2022-10-13 10:23:47.339121"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
